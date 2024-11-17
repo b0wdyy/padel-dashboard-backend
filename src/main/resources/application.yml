@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: padel-shop
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${AUTH0_ISSUER_URI}
+
+  # Database Configuration
+  datasource:
+    url: ${DATABASE_URL}
+    driver-class-name: org.postgresql.Driver
+
+  # JPA/Hibernate properties
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+cors:
+  allowed-origins: ${CORS_ALLOWED_ORIGINS}
+
+auth0:
+  audience: ${AUTH0_AUDIENCE}
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    io.bowdy.padel_shop: DEBUG
